@@ -1,3 +1,15 @@
+import re
+
+enzyme_cleavage_patterns = {
+    #schneide nach K
+    'LysC': r'(?<=K)',
+    #schneide vor K
+    'LysN': r'(?=K)',
+    'ArgC': r'(?<=R)',
+    #eckige klammer bedeutet entweder oder, schneide nach K oder R, aber nicht wenn danach P kommt
+    'Trypsin': r'(?<=[KR])(?!P)',
+}
+
 def digest_protein_sequence(protein_seq, cleave_pattern, min_pep_len=5, max_pep_len=30):
     """
     Add a short description here.
@@ -89,12 +101,3 @@ def compute_sequence_coverage(protein_seq, peptides):
     coverage = len(covered_positions) / len(protein_seq) * 100
     return coverage
 
-enzyme_cleavage_patterns = {
-    #schneide nach K
-    'LysC': r'(?<=K)',
-    #schneide vor K
-    'LysN': r'(?=K)',
-    'ArgC': r'(?<=R)',
-    #eckige klammer bedeutet entweder oder, schneide nach K oder R, aber nicht wenn danach P kommt
-    'Trypsin': r'(?<=[KR])(?!P)',
-}
