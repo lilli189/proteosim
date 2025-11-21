@@ -5,11 +5,11 @@ This repository also contains an end-to-end tutorial notebook.
 
 ## How to install the package
 Clone the repository and install the environment
-<pre> ```bash git clone &lt;your-repo-url&gt; cd proteosim ``` </pre>
+<pre>  git clone &lt;your-repo-url&gt; cd proteosim </pre>
 Install dependencies:
-<pre> ```bash pip install -r requirements.txt ``` </pre>
+<pre> pip install -r requirements.txt  </pre>
 You can now import it in Python:
-<pre> ```bash import proteosim as ps ``` </pre>
+<pre> import proteosim as ps  </pre>
 
 ## What the Package Does
 proteosim provides a full workflow for simulating bottom-up proteomics experiments.
