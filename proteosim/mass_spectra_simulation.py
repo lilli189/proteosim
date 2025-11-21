@@ -92,7 +92,7 @@ def calculate_mz_collection(peptide_mass_map, charge=2, proton_mass=1.007):
         mz_map[peptide] = calculation
     return mz_map
 
-def plot_spectrum(mz_values, random_count_range=(0, 30000), seed=42):
+def plot_spectrum(mz_values, random_count_range=(0, 30000), seed=42, width=2):
     """
     A function that plots a simulated mass spectrum given m/z values.
 
@@ -103,6 +103,13 @@ def plot_spectrum(mz_values, random_count_range=(0, 30000), seed=42):
     random_count_range : tuple
         default = (0, 30000)
         The range for generating random intensity counts.
+    seed : int
+        default = 42
+        The random seed for reproducibility.
+    width : int
+        default = 2
+        The width of the bars in the bar chart.
+    
     Returns
     -------
     A bar chart representing the mass spectrum.
@@ -112,6 +119,7 @@ def plot_spectrum(mz_values, random_count_range=(0, 30000), seed=42):
     np.random.seed(seed)
     #define random counts for each mz value
     counts = np.random.randint(random_count_range[0], random_count_range[1], size=len(mz_values))
+    width = width
 
     plt.bar(mz_values, counts, width=2, color='pink')
     plt.xlabel('m/z')
